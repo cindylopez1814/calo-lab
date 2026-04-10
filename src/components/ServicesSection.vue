@@ -1,8 +1,12 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useReveal } from '../composables/useReveal.js'
 
 const { t } = useI18n()
+
+const container = ref(null)
+useReveal(container)
 
 const WA_BASE = 'https://wa.me/5548988666796?text='
 
@@ -35,17 +39,17 @@ const services = computed(() => [
 </script>
 
 <template>
-  <section id="servicios" class="services-wrap">
+  <section id="servicios" class="services-wrap" ref="container">
     <div class="section">
-      <h2 class="section-title">{{ t('services.title') }}</h2>
+      <h2 class="section-title reveal">{{ t('services.title') }}</h2>
 
       <div class="services-grid">
         <article
           v-for="(service, i) in services"
           :key="i"
-          :class="['service-card', { 'service-card--featured': service.featured }]"
+          :class="['service-card', { 'service-card--featured': service.featured }, 'reveal', `reveal-d${i + 1}`]"
         >
-          <div v-if="service.featured" class="service-card__badge" aria-label="Servicio destacado">
+          <div v-if="service.featured" class="service-card__badge">
             {{ t('services.featured_badge') }}
           </div>
 
@@ -95,22 +99,23 @@ const services = computed(() => [
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .service-card:hover {
   border-color: var(--color-text-primary);
-  transform: translateY(-3px);
+  transform: translateY(-6px);
+  box-shadow: 6px 6px 0 var(--color-text-primary);
 }
 
 .service-card--featured {
   border-color: var(--color-accent);
-  border-width: var(--border-thick);
   margin-top: 1rem;
 }
 
 .service-card--featured:hover {
-  border-color: var(--color-accent-hover);
+  border-color: var(--color-accent);
+  box-shadow: 6px 6px 0 var(--color-accent);
 }
 
 .service-card__badge {

@@ -1,8 +1,12 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useReveal } from '../composables/useReveal.js'
 
 const { t } = useI18n()
+
+const container = ref(null)
+useReveal(container)
 
 const steps = computed(() => [
   { num: t('process.p1_num'), title: t('process.p1_title'), desc: t('process.p1_desc') },
@@ -13,15 +17,15 @@ const steps = computed(() => [
 </script>
 
 <template>
-  <section id="proceso" class="process-wrap">
+  <section id="proceso" class="process-wrap" ref="container">
     <div class="section">
-      <h2 class="section-title">{{ t('process.title') }}</h2>
+      <h2 class="section-title reveal">{{ t('process.title') }}</h2>
 
       <div class="process-steps">
         <div
           v-for="(step, i) in steps"
           :key="i"
-          :class="['process-step', { 'process-step--last': i === steps.length - 1 }]"
+          :class="['process-step', { 'process-step--last': i === steps.length - 1 }, 'reveal', `reveal-d${i + 1}`]"
         >
           <div class="process-step__number-wrap">
             <div class="process-step__number" aria-hidden="true">{{ step.num }}</div>

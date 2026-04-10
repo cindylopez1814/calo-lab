@@ -1,8 +1,12 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useReveal } from '../composables/useReveal.js'
 
 const { t } = useI18n()
+
+const container = ref(null)
+useReveal(container)
 
 const items = computed(() => [
   { num: '01', title: t('why.w1_title'), desc: t('why.w1_desc') },
@@ -13,15 +17,15 @@ const items = computed(() => [
 </script>
 
 <template>
-  <section id="diferencial" class="why-wrap">
+  <section id="diferencial" class="why-wrap" ref="container">
     <div class="section">
-      <h2 class="section-title">{{ t('why.title') }}</h2>
+      <h2 class="section-title reveal">{{ t('why.title') }}</h2>
 
       <div class="why-grid">
         <div
           v-for="(item, i) in items"
           :key="i"
-          class="why-item"
+          :class="['why-item', 'reveal', `reveal-d${(i % 2) + 1}`]"
         >
           <span class="why-item__num" aria-hidden="true">{{ item.num }}</span>
           <h3 class="why-item__title">{{ item.title }}</h3>
@@ -49,7 +53,8 @@ const items = computed(() => [
   padding: 2.5rem 2rem;
   border-right: var(--border-thick) solid var(--color-text-primary);
   border-bottom: var(--border-thick) solid var(--color-text-primary);
-  transition: background-color 0.2s;
+  transition: background-color 0.25s;
+  cursor: default;
 }
 
 .why-item:hover {

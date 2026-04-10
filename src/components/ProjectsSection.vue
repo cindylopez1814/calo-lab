@@ -1,32 +1,53 @@
 <script setup>
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useReveal } from '../composables/useReveal.js'
 
 const { t } = useI18n()
 
+const container = ref(null)
+useReveal(container)
+
 const projects = [
-  { color: '#4a7c59', key: 'p1', url: 'https://isla-nativa.vercel.app/' },
+  { key: 'p1', url: 'https://isla-nativa.vercel.app/', img: '/IMG/isla-nativa.jpg' },
   { color: '#2e6b8c', key: 'p2', url: null },
 ]
 </script>
 
 <template>
-  <section id="proyectos" class="projects-wrap">
+  <section id="proyectos" class="projects-wrap" ref="container">
     <div class="section">
-      <h2 class="section-title">{{ t('projects.title') }}</h2>
+      <h2 class="section-title reveal">{{ t('projects.title') }}</h2>
 
       <div class="projects-grid">
         <article
           v-for="(project, i) in projects"
           :key="i"
-          class="project-card"
+          :class="['project-card', 'reveal', `reveal-d${i + 1}`]"
         >
+          <a
+            v-if="project.url"
+            :href="project.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-card__mockup-link"
+            aria-label="Ver proyecto"
+          >
+            <div class="project-card__mockup" aria-hidden="true">
+              <img v-if="project.img" :src="project.img" :alt="t(`projects.${project.key}_name`)" class="project-card__img" loading="lazy" decoding="async" />
+              <div v-else class="project-card__mockup-inner" :style="{ backgroundColor: project.color }"></div>
+              <span class="project-card__mockup-hover">Ver proyecto ↗</span>
+            </div>
+          </a>
           <div
+            v-else
             class="project-card__mockup"
             :style="{ backgroundColor: project.color }"
             aria-hidden="true"
           >
             <div class="project-card__mockup-inner"></div>
           </div>
+
           <div class="project-card__info">
             <h3 class="project-card__name">{{ t(`projects.${project.key}_name`) }}</h3>
             <span class="project-card__niche">{{ t(`projects.${project.key}_niche`) }}</span>
@@ -42,7 +63,7 @@ const projects = [
         </article>
       </div>
 
-      <div class="projects-cta">
+      <div class="projects-cta reveal">
         <p class="projects-cta__text">{{ t('projects.cta') }}</p>
       </div>
     </div>
@@ -57,7 +78,7 @@ const projects = [
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 4rem;
 }
@@ -65,12 +86,18 @@ const projects = [
 .project-card {
   border: var(--border-thick) solid var(--color-border);
   overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
+  will-change: transform;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .project-card:hover {
   border-color: var(--color-text-primary);
-  transform: translateY(-3px);
+  transform: translateY(-6px);
+  box-shadow: 6px 6px 0 var(--color-text-primary);
+}
+
+.project-card__mockup-link {
+  display: block;
 }
 
 .project-card__mockup {
@@ -80,6 +107,22 @@ const projects = [
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.project-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card__mockup-link:hover .project-card__img {
+  transform: scale(1.04);
 }
 
 .project-card__mockup-inner {
@@ -87,6 +130,31 @@ const projects = [
   height: 60%;
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.project-card__mockup-hover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: #f2ede6;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-card__mockup-link:hover .project-card__mockup-hover {
+  opacity: 1;
+}
+
+.project-card__mockup-link:hover .project-card__mockup-inner {
+  transform: scale(0.95);
 }
 
 .project-card__info {
@@ -155,7 +223,7 @@ const projects = [
   line-height: 1.1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .projects-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
