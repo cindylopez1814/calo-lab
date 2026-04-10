@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "tagline": "Mais clientes. Menos desculpas.",
+    "subtagline": "Faço o seu site para o seu negócio aparecer, convencer e vender.",
+    "cta": "Quero meu site",
+    "wa_message": "Olá, quero saber mais sobre os serviços da Calo Lab."
+  },
+  "services": {
+    "title": "Serviços",
+    "featured_badge": "Recomendado",
+    "delivery_label": "Entrega:",
+    "cta": "Tenho interesse",
+    "s1_name": "Vitrine",
+    "s1_price": "R$1.200",
+    "s1_desc": "Site de 1 página para mostrar seu negócio online. Ideal para empreendedores e profissionais.",
+    "s1_delivery": "5–7 dias",
+    "s1_wa": "Olá, tenho interesse no Site Vitrine da Calo Lab.",
+    "s2_name": "Completo",
+    "s2_price": "R$2.800",
+    "s2_desc": "Até 5 páginas com design personalizado e desenvolvimento sob medida.",
+    "s2_delivery": "10–14 dias",
+    "s2_wa": "Olá, tenho interesse no Site Completo da Calo Lab.",
+    "s3_name": "Branding",
+    "s3_price": "R$800",
+    "s3_desc": "Logotipo, paleta de cores, tipografias e guia de uso básico em PDF.",
+    "s3_delivery": "3–5 dias",
+    "s3_wa": "Olá, tenho interesse no Branding Básico da Calo Lab."
+  },
+  "process": {
+    "title": "Como funciona",
+    "p1_num": "01",
+    "p1_title": "Briefing",
+    "p1_desc": "Conversamos sobre seu projeto, objetivos e público-alvo.",
+    "p2_num": "02",
+    "p2_title": "Proposta",
+    "p2_desc": "Apresento a estrutura e o orçamento para sua aprovação.",
+    "p3_num": "03",
+    "p3_title": "Desenvolvimento",
+    "p3_desc": "Design e código com 2 rodadas de revisão incluídas.",
+    "p4_num": "04",
+    "p4_title": "Entrega",
+    "p4_desc": "Site online na Vercel com 15 dias de suporte incluídos."
+  },
+  "why": {
+    "title": "Por que Calo Lab",
+    "w1_title": "Designer que também desenvolve",
+    "w1_desc": "Design e código em uma só pessoa. Sem perda de informação nem custos extras.",
+    "w2_title": "Sem intermediários",
+    "w2_desc": "Você trabalha diretamente comigo. Comunicação direta, decisões rápidas.",
+    "w3_title": "Preço justo, sem surpresas",
+    "w3_desc": "Orçamento fixo antes de começar. Sem cobranças inesperadas no final.",
+    "w4_title": "Entrega nos prazos combinados",
+    "w4_desc": "Datas de entrega que se cumprem. Processo claro desde o primeiro dia."
+  },
+  "projects": {
+    "title": "Projetos",
+    "cta": "O seu é o próximo?",
+    "cta_btn": "Fale comigo pelo WhatsApp",
+    "wa_message": "Olá, quero saber mais sobre os serviços da Calo Lab.",
+    "status": "Em desenvolvimento",
+    "p1_name": "Isla Nativa",
+    "p1_niche": "Turismo / Aventura",
+    "p2_name": "Demo Saúde",
+    "p2_niche": "Serviços de Saúde",
+    "p3_name": "Calo Lab",
+    "p3_niche": "Design & Desenvolvimento"
+  },
+  "contact": {
+    "phrase": "Pronto para ter um site que trabalhe pelo seu negócio?",
+    "wa_cta": "Escrever pelo WhatsApp",
+    "wa_message": "Olá, quero saber mais sobre os serviços da Calo Lab.",
+    "or": "ou"
+  },
+  "footer": {
+    "tagline": "Design e desenvolvimento web para pequenas empresas.",
+    "copyright": "© 2026 Calo Lab",
+    "contact_title": "Contato",
+    "whatsapp": "WhatsApp"
+  },
+  "aria": {
+    "toggle_theme_dark": "Ativar modo escuro",
+    "toggle_theme_light": "Ativar modo claro",
+    "whatsapp_float": "Contatar pelo WhatsApp",
+    "lang_selector": "Selecionar idioma"
+  }
+}

@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ─── Tokens ─────────────────────────────────────────── */
+:root {
+  --color-bg: #f2ede6;
+  --color-bg-secondary: #ffffff;
+  --color-surface: #ffffff;
+  --color-text-primary: #1c1c1c;
+  --color-text-secondary: #5a5a5a;
+  --color-accent: #d95f2b;
+  --color-accent-hover: #c04e1f;
+  --color-border: #e0d8cf;
+  --color-nav-bg: rgba(242, 237, 230, 0.9);
+
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --border-w: 2px;
+  --border-thick: 3px;
+
+  --container-max: 1100px;
+  --section-pad-v: 5rem;
+  --section-pad-h: 1.5rem;
+
+  --header-h: 64px;
+}
+
+/* ─── Reset ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ─── Utilities ───────────────────────────────────────── */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-pad-h);
+}
+
+.section {
+  padding: var(--section-pad-v) var(--section-pad-h);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  color: var(--color-text-primary);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: var(--border-thick) solid var(--color-text-primary);
+  transition: background-color 0.2s, transform 0.1s;
+  line-height: 1;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-h: 56px;
+  }
+}
