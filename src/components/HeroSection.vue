@@ -238,7 +238,7 @@ onUnmounted(() => {
   }
 
   .hero__scroll-indicator {
-    bottom: 24px;
+    display: none;
   }
 }
 </style>
