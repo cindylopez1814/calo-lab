@@ -229,8 +229,17 @@ onUnmounted(() => {
 
 /* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 768px) {
+  .hero {
+    height: 88vh;
+    justify-content: center;
+  }
+
   .hero__content {
     padding: 0 24px 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero__subtagline {

@@ -123,7 +123,17 @@ const { t } = useI18n()
 @media (max-width: 600px) {
   .footer__inner {
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
+    text-align: center;
+  }
+
+  .footer__tagline {
+    max-width: 100%;
+  }
+
+  .footer__logo-img {
+    margin: 0 auto;
   }
 }
 </style>

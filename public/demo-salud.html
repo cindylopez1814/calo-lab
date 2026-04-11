@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Salud — Em breve</title>
+  <link rel="icon" type="image/png" href="/logos/icon-orange.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #d95f2b;
+      --bg: #f2ede6;
+      --text: #1c1c1c;
+      --muted: #5a5a5a;
+      --border: #1c1c1c;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      padding: 4px 10px;
+    }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      gap: 2rem;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      animation: fadeUp 0.7s ease both 0.1s;
+    }
+
+    .sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 380px;
+      line-height: 1.6;
+      animation: fadeUp 0.7s ease both 0.2s;
+    }
+
+    /* ── Progress bar ── */
+    .progress-wrap {
+      width: min(360px, 90%);
+      animation: fadeUp 0.7s ease both 0.3s;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 3px;
+      background: #e0d8cf;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      animation: fillBar 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.6s;
+    }
+
+    /* ── Back link ── */
+    .back {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+      animation: fadeUp 0.7s ease both 0.4s;
+    }
+
+    .back:hover { color: var(--accent); }
+
+    /* ── Decoration ── */
+    .deco {
+      position: fixed;
+      pointer-events: none;
+    }
+
+    .deco--a {
+      width: 180px;
+      height: 180px;
+      border: 3px solid #e0d8cf;
+      top: -50px;
+      right: 6%;
+      transform: rotate(12deg);
+      opacity: 0.6;
+    }
+
+    .deco--b {
+      width: 100px;
+      height: 100px;
+      background: var(--accent);
+      bottom: 60px;
+      left: 5%;
+      opacity: 0.1;
+      transform: rotate(-8deg);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 1.5rem 48px;
+      border-top: 2px solid #e0d8cf;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── Keyframes ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fillBar {
+      to { width: 65%; }
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px 24px; }
+      footer { padding: 1.5rem 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deco deco--a"></div>
+  <div class="deco deco--b"></div>
+
+  <header>
+    <a href="/" class="logo">CALO LAB</a>
+    <span class="tag">Serviços de Saúde</span>
+  </header>
+
+  <main>
+    <p class="eyebrow">Projeto em andamento</p>
+    <h1>Em<br>breve</h1>
+    <p class="sub">Este projeto está sendo desenvolvido. Em breve estará disponível.</p>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Desenvolvimento</span>
+        <span>65%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <a href="/" class="back">← Voltar ao início</a>
+  </main>
+
+  <footer>© 2026 Calo Lab</footer>
+
+</body>
+</html>
