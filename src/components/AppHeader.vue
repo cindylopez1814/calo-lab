@@ -101,19 +101,19 @@ onUnmounted(() => {
   background: none;
   border: none;
   font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(242, 237, 230, 0.5);
+  color: rgba(242, 237, 230, 0.85);
   cursor: pointer;
-  padding: 0;
+  padding: 2px 0;
   transition: color 0.2s ease;
   line-height: 1;
 }
 
 .header--scrolled .lang-btn {
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
 }
 
 .lang-btn--active {
@@ -121,16 +121,16 @@ onUnmounted(() => {
 }
 
 .lang-btn:hover:not(.lang-btn--active) {
-  color: rgba(242, 237, 230, 0.85);
+  color: #ffffff;
 }
 
 .header--scrolled .lang-btn:hover:not(.lang-btn--active) {
-  color: var(--color-text-primary);
+  color: var(--color-accent);
 }
 
 .lang-sep {
   font-size: 11px;
-  color: rgba(242, 237, 230, 0.2);
+  color: rgba(242, 237, 230, 0.4);
   line-height: 1;
   user-select: none;
 }
