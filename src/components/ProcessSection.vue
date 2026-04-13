@@ -46,6 +46,11 @@ const steps = computed(() => [
   border-bottom: var(--border-w) solid var(--color-border);
 }
 
+.process-wrap .section {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
 .process-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

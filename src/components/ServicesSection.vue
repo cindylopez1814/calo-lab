@@ -12,28 +12,46 @@ const WA_BASE = 'https://wa.me/5548988666796?text='
 
 const services = computed(() => [
   {
+    key: 's1',
     name: t('services.s1_name'),
     price: t('services.s1_price'),
-    desc: t('services.s1_desc'),
+    priceAlt: t('services.s1_price_alt'),
+    for: t('services.s1_for'),
+    includes: [
+      t('services.s1_i1'),
+      t('services.s1_i2'),
+      t('services.s1_i3'),
+    ],
     delivery: t('services.s1_delivery'),
     waUrl: WA_BASE + encodeURIComponent(t('services.s1_wa')),
-    featured: false,
   },
   {
+    key: 's2',
     name: t('services.s2_name'),
     price: t('services.s2_price'),
-    desc: t('services.s2_desc'),
+    priceAlt: t('services.s2_price_alt'),
+    for: t('services.s2_for'),
+    includes: [
+      t('services.s2_i1'),
+      t('services.s2_i2'),
+      t('services.s2_i3'),
+    ],
     delivery: t('services.s2_delivery'),
     waUrl: WA_BASE + encodeURIComponent(t('services.s2_wa')),
-    featured: true,
   },
   {
+    key: 's3',
     name: t('services.s3_name'),
     price: t('services.s3_price'),
-    desc: t('services.s3_desc'),
+    priceAlt: t('services.s3_price_alt'),
+    for: t('services.s3_for'),
+    includes: [
+      t('services.s3_i1'),
+      t('services.s3_i2'),
+      t('services.s3_i3'),
+    ],
     delivery: t('services.s3_delivery'),
     waUrl: WA_BASE + encodeURIComponent(t('services.s3_wa')),
-    featured: false,
   },
 ])
 </script>
@@ -46,33 +64,44 @@ const services = computed(() => [
       <div class="services-grid">
         <article
           v-for="(service, i) in services"
-          :key="i"
-          :class="['service-card', { 'service-card--featured': service.featured }, 'reveal', `reveal-d${i + 1}`]"
+          :key="service.key"
+          :class="['service-card', 'reveal', `reveal-d${i + 1}`]"
         >
-          <div v-if="service.featured" class="service-card__badge">
-            {{ t('services.featured_badge') }}
+          <!-- Nombre -->
+          <h3 class="service-card__name">{{ service.name }}</h3>
+
+          <!-- Precio -->
+          <div class="service-card__pricing">
+            <span class="service-card__price">{{ service.price }}</span>
+            <span class="service-card__price-alt">
+              {{ t('services.price_or') }} {{ service.priceAlt }}
+            </span>
           </div>
 
-          <div class="service-card__header">
-            <h3 class="service-card__name">{{ service.name }}</h3>
-            <div class="service-card__price">{{ service.price }}</div>
-          </div>
+          <!-- Para quién -->
+          <p class="service-card__for">{{ service.for }}</p>
 
-          <p class="service-card__desc">{{ service.desc }}</p>
+          <!-- Incluye -->
+          <ul class="service-card__includes">
+            <li v-for="(item, j) in service.includes" :key="j">
+              <span class="check" aria-hidden="true">✓</span>
+              {{ item }}
+            </li>
+          </ul>
 
+          <!-- Entrega -->
           <div class="service-card__delivery">
             <span class="delivery-label">{{ t('services.delivery_label') }}</span>
             {{ service.delivery }}
           </div>
 
+          <!-- CTA -->
           <a
             :href="service.waUrl"
             target="_blank"
             rel="noopener noreferrer"
-            :class="['service-card__cta', { 'service-card__cta--featured': service.featured }]"
-          >
-            {{ t('services.cta') }}
-          </a>
+            class="service-card__cta"
+          >{{ t('services.cta') }}</a>
         </article>
       </div>
     </div>
@@ -88,11 +117,10 @@ const services = computed(() => [
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .service-card {
-  position: relative;
   background: var(--color-surface);
   border: var(--border-thick) solid var(--color-border);
   padding: 2rem;
@@ -108,77 +136,89 @@ const services = computed(() => [
   box-shadow: 6px 6px 0 var(--color-text-primary);
 }
 
-.service-card--featured {
-  border-color: var(--color-accent);
-  margin-top: 1rem;
-}
-
-.service-card--featured:hover {
-  border-color: var(--color-accent);
-  box-shadow: 6px 6px 0 var(--color-accent);
-}
-
-.service-card__badge {
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-accent);
-  color: #ffffff;
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
-  padding: 0.25rem 1rem;
-  border: var(--border-w) solid var(--color-text-primary);
-  white-space: nowrap;
-  text-transform: uppercase;
-}
-
-.service-card__header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
+/* Nombre */
 .service-card__name {
   font-family: var(--font-heading);
   font-size: 2rem;
   text-transform: uppercase;
   color: var(--color-text-primary);
+  line-height: 1;
+}
+
+/* Bloque de precio */
+.service-card__pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: var(--border-w) solid var(--color-border);
 }
 
 .service-card__price {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: var(--color-accent);
   line-height: 1;
 }
 
-.service-card__desc {
-  font-size: 0.9rem;
+.service-card__price-alt {
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--color-text-secondary);
-  line-height: 1.65;
+  opacity: 0.65;
+  letter-spacing: 0.03em;
+}
+
+/* Para quién */
+.service-card__for {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Lista de incluidos */
+.service-card__includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   flex: 1;
 }
 
+.service-card__includes li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+.check {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  font-style: normal;
+}
+
+/* Entrega */
 .service-card__delivery {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--color-text-secondary);
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   border-top: var(--border-w) solid var(--color-border);
-  border-bottom: var(--border-w) solid var(--color-border);
-  letter-spacing: 0.04em;
 }
 
 .delivery-label {
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  margin-right: 0.35rem;
   color: var(--color-text-secondary);
+  margin-right: 0.25rem;
 }
 
+/* CTA */
 .service-card__cta {
   display: block;
   text-align: center;
@@ -198,26 +238,11 @@ const services = computed(() => [
   color: var(--color-bg);
 }
 
-.service-card__cta--featured {
-  background: var(--color-accent);
-  border-color: var(--color-text-primary);
-  color: #ffffff;
-}
-
-.service-card__cta--featured:hover {
-  background: var(--color-accent-hover);
-  color: #ffffff;
-}
-
 @media (max-width: 900px) {
   .services-grid {
     grid-template-columns: 1fr;
     max-width: 460px;
     margin: 0 auto;
-  }
-
-  .service-card--featured {
-    margin-top: 0;
   }
 }
 </style>

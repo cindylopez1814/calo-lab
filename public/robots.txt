@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://calolab.com.br/sitemap.xml
