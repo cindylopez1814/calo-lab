@@ -10,7 +10,7 @@ useReveal(container)
 
 const projects = [
   { key: 'p1', url: 'https://isla-nativa.vercel.app/', img: '/IMG/isla-nativa.jpg' },
-  { color: '#2e6b8c', key: 'p2', url: '/demo-salud.html' },
+  { img: '/IMG/mockup demo salud.png' , key: 'p2', url: 'https://demo-salud.vercel.app/' },
 ]
 </script>
 
