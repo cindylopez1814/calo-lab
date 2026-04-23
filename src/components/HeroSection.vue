@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 
 const { t, tm } = useI18n()
 
-const waUrl = 'https://wa.me/5548988666796?text=Hola+Cindy,+quiero+hablar+sobre+mi+sitio+web'
+const waUrl = 'https://wa.me/5548988478951?text=Hola+Cindy,+quiero+hablar+sobre+mi+sitio+web'
 
 // ── Cycling word ────────────────────────────────────────
 const wordIndex = ref(0)

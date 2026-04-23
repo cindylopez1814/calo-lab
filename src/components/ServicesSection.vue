@@ -8,7 +8,7 @@ const { t } = useI18n()
 const container = ref(null)
 useReveal(container)
 
-const WA_BASE = 'https://wa.me/5548988666796?text='
+const WA_BASE = 'https://wa.me/5548988478951?text='
 
 const services = computed(() => [
   {
