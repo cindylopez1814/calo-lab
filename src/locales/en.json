@@ -84,7 +84,9 @@
     "p2_name": "Health Demo",
     "p2_niche": "Health Services",
     "p3_name": "Barber Demo",
-    "p3_niche": "Barbershop / Grooming"
+    "p3_niche": "Barbershop / Grooming",
+    "p4_name": "Pizzeria Demo",
+    "p4_niche": "Restaurant / Pizzeria"
   },
   "contact": {
     "eyebrow": "Let's get started",

@@ -12,6 +12,7 @@ const projects = [
   { key: 'p1', url: 'https://isla-nativa.vercel.app/', img: '/IMG/isla-nativa.jpg' },
   { key: 'p2', url: 'https://demo-salud.vercel.app/', img: '/IMG/mockup demo salud.png' },
   { key: 'p3', url: 'https://black-blade-barber.vercel.app/', img: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80&auto=format&fit=crop' },
+  { key: 'p4', url: 'https://pizzeria-floripa.vercel.app/', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80&auto=format&fit=crop' },
 ]
 </script>
 
