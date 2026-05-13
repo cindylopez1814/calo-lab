@@ -13,6 +13,7 @@ const WA_BASE = 'https://wa.me/5548988478951?text='
 const services = computed(() => [
   {
     key: 's1',
+    offer: true,
     name: t('services.s1_name'),
     price: t('services.s1_price'),
     priceAlt: t('services.s1_price_alt'),
@@ -67,11 +68,19 @@ const services = computed(() => [
           :key="service.key"
           :class="['service-card', 'reveal', `reveal-d${i + 1}`]"
         >
+          <!-- Badge oferta -->
+          <div v-if="service.offer" class="service-card__offer-badge">
+            {{ t('services.offer_badge') }}
+          </div>
+
           <!-- Nombre -->
           <h3 class="service-card__name">{{ service.name }}</h3>
 
           <!-- Precio -->
           <div class="service-card__pricing">
+            <div v-if="service.offer" class="service-card__price-before">
+              {{ t('services.offer_before') }}
+            </div>
             <span class="service-card__price">{{ service.price }}</span>
             <span class="service-card__price-alt">
               {{ t('services.price_or') }} {{ service.priceAlt }}
@@ -118,6 +127,29 @@ const services = computed(() => [
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   align-items: stretch;
+}
+
+/* Badge oferta */
+.service-card__offer-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--color-accent);
+  color: #f2ede6;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+
+/* Precio tachado */
+.service-card__price-before {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  text-decoration: line-through;
+  opacity: 0.6;
 }
 
 .service-card {

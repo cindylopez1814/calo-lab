@@ -12,9 +12,12 @@
     "featured_badge": "Recomendado",
     "delivery_label": "Entrega:",
     "price_or": "ou",
+    "offer_badge": "Oferta exclusiva",
+    "offer_before": "De R$1.200",
     "cta": "Tenho interesse",
     "s1_name": "Vitrine",
-    "s1_price": "R$1.200",
+    "s1_offer": true,
+    "s1_price": "R$900",
     "s1_price_alt": "$300.000 CLP",
     "s1_for": "Para empreendedores e profissionais que precisam estar online rápido.",
     "s1_i1": "1 página com até 6 seções",
@@ -80,8 +83,8 @@
     "p1_niche": "Turismo / Aventura",
     "p2_name": "Demo Saúde",
     "p2_niche": "Serviços de Saúde",
-    "p3_name": "Calo Lab",
-    "p3_niche": "Design & Desenvolvimento"
+    "p3_name": "Demo Barbearia",
+    "p3_niche": "Barbearia / Grooming"
   },
   "contact": {
     "eyebrow": "Vamos começar",

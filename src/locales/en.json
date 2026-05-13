@@ -12,9 +12,12 @@
     "featured_badge": "Recommended",
     "delivery_label": "Delivery:",
     "price_or": "or",
+    "offer_badge": "Exclusive offer",
+    "offer_before": "Was R$1,200",
     "cta": "I'm interested",
     "s1_name": "Showcase",
-    "s1_price": "R$1,200",
+    "s1_offer": true,
+    "s1_price": "R$900",
     "s1_price_alt": "$300,000 CLP",
     "s1_for": "For entrepreneurs and freelancers who need to get online fast.",
     "s1_i1": "1 page with up to 6 sections",
@@ -80,8 +83,8 @@
     "p1_niche": "Tourism / Adventure",
     "p2_name": "Health Demo",
     "p2_niche": "Health Services",
-    "p3_name": "Calo Lab",
-    "p3_niche": "Design & Development"
+    "p3_name": "Barber Demo",
+    "p3_niche": "Barbershop / Grooming"
   },
   "contact": {
     "eyebrow": "Let's get started",
